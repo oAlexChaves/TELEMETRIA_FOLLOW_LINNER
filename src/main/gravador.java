@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import ENTITIES.Robo;
+import testes.teste_robo_bluetooth;
 
 public class gravador {
 
@@ -19,27 +20,32 @@ public class gravador {
             Scanner scan = new Scanner(System.in);
             Robo RoundAtual = new Robo();
             boolean round = true;
-
+            teste_robo_bluetooth teste = new teste_robo_bluetooth();
+            
             System.out.println("Digite o numero do teste:");
             RoundAtual.numeroTeste = scan.next();
-            System.out.println("Digite o P:");
-            RoundAtual.P = scan.nextDouble();
-            System.out.println("Digite o I:");
-            RoundAtual.I = scan.nextDouble();
-            System.out.println("Digite o D:");
-            RoundAtual.D = scan.nextDouble();
+            RoundAtual.P = teste.P;
+            System.out.println("P salvo com sucesso!");
+            RoundAtual.I = teste.I;
+            System.out.println("I salvo com sucesso!");
+            RoundAtual.D = teste.D;
+            System.out.println("D salvo com sucesso!");
             System.out.println("Digite a velocidade inicial:");
-            RoundAtual.initial_speed = scan.nextDouble();
+            RoundAtual.initial_speed = teste.Initial_speed;
             
             // Setando data e hora formatada
             RoundAtual.dataHora = salvarDataHora();
             long inicio = System.currentTimeMillis();
-
+            for(int x = 0; x < 5; x++) {
+            	System.out.println(teste_robo_bluetooth.randomizarString());        	
+            }
             long tempoDecorrido = System.currentTimeMillis() - inicio;
+            System.out.println("Round finalizado! ");
             RoundAtual.tempo = "" + tempoDecorrido /100;
+            System.out.println("O tempo decorrido foi de " + RoundAtual.tempo);
             
             // finalizar marcação de tempo
-            System.out.println("Digite o conceito avaliando de 1 a 5:");
+            System.out.println("\n Digite o conceito avaliando de 1 a 5:");
             RoundAtual.conceito = scan.nextInt();
              
             save = conexao.prepareStatement(
