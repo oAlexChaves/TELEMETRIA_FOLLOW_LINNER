@@ -2,12 +2,15 @@ package main;
 
 import java.util.Scanner;
 
+
+
 public class main {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
         int escolha;
-        
+        gravador Gravador = new gravador();
+        exibir_corridas exibir_corridas = new exibir_corridas();
 
         do {
             exibirMenu();
@@ -16,9 +19,10 @@ public class main {
 
             switch (escolha) {
                 case 1:
-                    System.out.println("1. Gravar um nova corrida");
+                	Gravador.gravacao();
                     break;
                 case 2:
+                	exibir_corridas.exibir();
                     System.out.println("2. Ver corridas gravadas:");
                     break;
                 case 3:

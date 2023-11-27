@@ -6,7 +6,6 @@ public class Robo {
 	public double D;
 	public double initial_speed;
 	public int conceito;
-
 	public String sensores;
 	public String sensores_erro;
 	public String dataHora;

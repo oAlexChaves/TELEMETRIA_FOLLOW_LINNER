@@ -7,7 +7,6 @@ import java.util.Scanner;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-
 import ENTITIES.Robo;
 
 public class gravador {
@@ -34,28 +33,22 @@ public class gravador {
             
             // Setando data e hora formatada
             RoundAtual.dataHora = salvarDataHora();
-            while (round == true) {
-                // sua lógica aqui
-            }
+            long inicio = System.currentTimeMillis();
 
+            long tempoDecorrido = System.currentTimeMillis() - inicio;
+            RoundAtual.tempo = "" + tempoDecorrido /100;
+            
             // finalizar marcação de tempo
             System.out.println("Digite o conceito avaliando de 1 a 5:");
             RoundAtual.conceito = scan.nextInt();
-
-
-
-            // Campos adicionais que precisam ser inicializados
-            RoundAtual.sensores = "sensores"; // Substitua pelo valor apropriado
-            RoundAtual.sensores_erro = "sensores_erro"; // Substitua pelo valor apropriado
-            RoundAtual.tempo = "tempo"; // Substitua pelo valor apropriado
-            
-   
+             
             save = conexao.prepareStatement(
                     "INSERT INTO corridas_treino"
-                            + "(numero_teste, data_hora, P, I, D, initial_speed, conceito, sensores, sensores_erro, tempo)"
+                            + "(numero_teste, data_hora, P, I, D, initial_speed, conceito, tempo)"
                             + "VALUES"
-                            + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                            + "(?, ?, ?, ?, ?, ?, ?, ?)"
             );
+            
             save.setString(1, RoundAtual.numeroTeste);
             save.setString(2, RoundAtual.dataHora);
             save.setDouble(3, RoundAtual.P);
@@ -63,9 +56,7 @@ public class gravador {
             save.setDouble(5, RoundAtual.D);
             save.setDouble(6, RoundAtual.initial_speed);
             save.setInt(7, RoundAtual.conceito);
-            save.setString(8, RoundAtual.sensores);
-            save.setString(9, RoundAtual.sensores_erro);
-            save.setString(10, RoundAtual.tempo);
+            save.setString(8, RoundAtual.tempo);
             save.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,6 +66,7 @@ public class gravador {
             if (conexao != null) {
                 try {
                     conexao.close();
+                    System.out.println("A corrida foi registrada com sucesso!!");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
