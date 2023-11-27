@@ -11,6 +11,7 @@ public class main {
         int escolha;
         gravador Gravador = new gravador();
         exibir_corridas exibir_corridas = new exibir_corridas();
+        excluir_teste excluir = new excluir_teste();
 
         do {
             exibirMenu();
@@ -23,10 +24,9 @@ public class main {
                     break;
                 case 2:
                 	exibir_corridas.exibir();
-                    System.out.println("2. Ver corridas gravadas:");
                     break;
                 case 3:
-                    System.out.println("3. Excluir corridas gravadas:");
+                	excluir.excluir();
                     break;
                 case 4:
                     System.out.println("4. editar o numero do test:");
