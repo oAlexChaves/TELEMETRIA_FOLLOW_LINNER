@@ -5,9 +5,12 @@ public class Robo {
 	public double I;
 	public double D;
 	public double initial_speed;
-	public String conceito;
+	public int conceito;
+
 	public String sensores;
 	public String sensores_erro;
-
+	public String dataHora;
+	public String tempo;
+	public String numeroTeste;
 	
 }
