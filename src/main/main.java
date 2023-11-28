@@ -28,9 +28,6 @@ public class main {
                 case 3:
                 	excluir.excluir();
                     break;
-                case 4:
-                    System.out.println("4. editar o numero do test:");
-                    break;
                 case 0:
                     System.out.println("Saindo do programa. Adeus!");
                     break;
@@ -46,10 +43,9 @@ public class main {
 
     public static void exibirMenu() {
         System.out.println("----- Menu -----");
-        System.out.println("1. Opção 1");
-        System.out.println("2. Opção 2");
-        System.out.println("3. Opção 3");
-        System.out.println("4. Opção 4");
+        System.out.println("1. Gravar uma corrida do vespa");
+        System.out.println("2. Exibir corridas do vespa");
+        System.out.println("3. excluir uma corrida");
         System.out.println("0. Sair");
         System.out.println("-----------------");
     }

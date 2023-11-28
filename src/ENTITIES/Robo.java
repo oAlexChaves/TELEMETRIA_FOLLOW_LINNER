@@ -9,8 +9,8 @@ public class Robo {
 	public double D;
 	public double initial_speed;
 	public int conceito;
-	List<String> sensores = new ArrayList<>();
-	List<String> sensores_erro = new ArrayList<>();
+	public List<String> sensores = new ArrayList<>();
+	public List<String> sensores_erro = new ArrayList<>();
 	public String dataHora;
 	public String tempo;
 	public String numeroTeste;
