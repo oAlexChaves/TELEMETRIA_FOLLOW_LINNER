@@ -1,6 +1,10 @@
-package main;
+package apresentacao;
 
 import java.util.Scanner;
+
+import negocios.excluir_teste;
+import negocios.exibir_corridas;
+import negocios.gravador;
 
 
 
@@ -15,7 +19,7 @@ public class main {
 
         do {
             exibirMenu();
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma opção: \n ");
             escolha = scanner.nextInt();
 
             switch (escolha) {
@@ -37,7 +41,6 @@ public class main {
             }
 
         } while (escolha != 0);
-        
         scanner.close();
     }
 

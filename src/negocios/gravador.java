@@ -1,4 +1,4 @@
-package main;
+package negocios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import ENTITIES.Robo;
+import persistencia.ConnectarJDBC;
 import testes.teste_robo_bluetooth;
 
 public class gravador {
@@ -45,17 +46,18 @@ public class gravador {
             		RoundAtual.sensores.add(sensoresAtual);
             		RoundAtual.sensores_erro.add(sensoresAtual);
             	}
+                Thread.sleep(5000);
             }
-            System.out.printf("O sensor foi lido" + RoundAtual.sensores.size() +"vezes");
+            System.out.printf("O sensor foi lido " + RoundAtual.sensores.size() +" vezes");
             long tempoDecorrido = System.currentTimeMillis() - inicio;
             System.out.println("Round finalizado! ");
-            RoundAtual.tempo = "" + tempoDecorrido /100;
+            RoundAtual.tempo = "" + tempoDecorrido /1000;
             System.out.println("O tempo decorrido foi de " + RoundAtual.tempo);
             
             // finalizar marcação de tempo
             System.out.println("\n Digite o conceito avaliando de 1 a 5:");
             RoundAtual.conceito = scan.nextInt();
-             
+            scan.close();
             save = conexao.prepareStatement(
                     "INSERT INTO corridas_treino"
                             + "(numero_teste, data_hora, P, I, D, initial_speed, conceito, tempo)"
@@ -72,7 +74,7 @@ public class gravador {
             save.setInt(7, RoundAtual.conceito);
             save.setString(8, RoundAtual.tempo);
             save.executeUpdate();
-        } catch (SQLException e) {
+        } catch (SQLException | InterruptedException e) {
             e.printStackTrace();
         } 
         
@@ -80,7 +82,7 @@ public class gravador {
             if (conexao != null) {
                 try {
                     conexao.close();
-                    System.out.println("A corrida foi registrada com sucesso!!");
+                    System.out.println("A corrida foi registrada com sucesso!! \n");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

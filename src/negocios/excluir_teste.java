@@ -1,8 +1,10 @@
-package main;
+package negocios;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import persistencia.ConnectarJDBC;
 
 public class excluir_teste {
     Scanner scan = new Scanner(System.in);

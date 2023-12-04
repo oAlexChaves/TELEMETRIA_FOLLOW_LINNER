@@ -1,8 +1,11 @@
 package testes;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class teste_robo_bluetooth {
+	
+    DecimalFormat formato = new DecimalFormat("#.##");
 	
     public  double P = 1 + (2 - 1) * random.nextDouble();
     public  double I = 0.0001 + (0.0005 - 0.0001) * random.nextDouble(); 

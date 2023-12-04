@@ -1,9 +1,11 @@
-package main;
+package negocios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import persistencia.ConnectarJDBC;
 
 public class exibir_corridas {
 
